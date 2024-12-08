@@ -1,0 +1,118 @@
+/* Challenges Management Page */
+.manage-challenges {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .manage-challenges h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .manage-challenges table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .manage-challenges th,
+  .manage-challenges td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .manage-challenges th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .manage-challenges tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .manage-challenges tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .manage-challenges button.btn-edit,
+  .manage-challenges button.btn-delete {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .manage-challenges button.btn-edit {
+    background-color: #ffc107;
+    color: white;
+  }
+  
+  .manage-challenges button.btn-edit:hover {
+    background-color: #e0a800;
+  }
+  
+  .manage-challenges button.btn-delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .manage-challenges button.btn-delete:hover {
+    background-color: #c82333;
+  }
+  
+  /* Challenge Form Styling */
+  .manage-challenges form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .manage-challenges form input[type="text"],
+  .manage-challenges form input[type="number"],
+  .manage-challenges form input[type="datetime-local"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .manage-challenges form button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .manage-challenges form button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  .manage-challenges form button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .manage-challenges form button[type="button"]:hover {
+    background-color: #c82333;
+  }
+  

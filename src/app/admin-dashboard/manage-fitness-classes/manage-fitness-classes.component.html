@@ -1,0 +1,247 @@
+<!-- User Management Section -->
+<div class="manage-users bg-gray-50 p-6 rounded-lg shadow-lg">
+    <!-- Header with "Manage Users" title and "Add New User" button on the same line -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-gray-800">Manage Fitness Classes</h2>
+      <button 
+        class="btn btn-primary py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300" 
+        (click)="addNewUserForm()">
+        Add New User
+      </button>
+    </div>
+  
+    <!-- Add User Form -->
+    <div class="form-container mb-6 bg-white p-6 rounded-lg shadow-md" *ngIf="showAddUserForm">
+      <h3 class="text-xl font-bold mb-4 text-gray-800">Add New Class</h3>
+      <form (ngSubmit)="addClass()">
+        <!-- Username Field -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Username</label>
+          <input 
+            [(ngModel)]="newClass.name" 
+            name="name" 
+            placeholder="Username" 
+            required 
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <!-- Email Field -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Category</label>
+          <input 
+            [(ngModel)]="newClass.category" 
+            name="category" 
+            placeholder="Category" 
+            required 
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <!-- Role Field -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Trainer Id</label>
+          <input 
+            [(ngModel)]="newClass.trainerId" 
+            name="trainerId" 
+            placeholder="Trainer Id" 
+            required 
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <!-- Password Field -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">user Id</label>
+          <input 
+            [(ngModel)]="newClass.userId" 
+            name="userId" 
+            placeholder="userId" 
+            required 
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+  
+        <!-- Phone Number Field -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">scheduledTime</label>
+          <input 
+            [(ngModel)]="newClass.scheduledTime" 
+            name="scheduledTime" 
+            type="date"
+            placeholder="scheduledTime" 
+            required 
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">location</label>
+            <input 
+              [(ngModel)]="newClass.location" 
+              name="location" 
+              placeholder="location" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">maximumCapacity</label>
+            <input 
+              [(ngModel)]="newClass.maximumCapacity" 
+              name="maximumCapacity" 
+              placeholder="maximumCapacity" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+  
+        <!-- Submit and Back Buttons -->
+        <div class="flex justify-between">
+          <button 
+            type="submit" 
+            class="btn btn-add py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 w-1/2">
+            Add User
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-back py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 transition duration-300 w-1/2"
+            (click)="showAddUserForm = false">
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Edit User Form -->
+    <div class="form-container mb-6 bg-white p-6 rounded-lg shadow-md" *ngIf="showEditUserForm">
+      <h3 class="text-xl font-bold mb-4 text-gray-800">Edit User</h3>
+      <form (ngSubmit)="updateClass()">
+        <!-- Username Field -->
+        <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Username</label>
+            <input 
+              [(ngModel)]="newClass.name" 
+              name="name" 
+              placeholder="Username" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+    
+          <!-- Email Field -->
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Category</label>
+            <input 
+              [(ngModel)]="newClass.category" 
+              name="category" 
+              placeholder="Category" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+    
+          <!-- Role Field -->
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Trainer Id</label>
+            <input 
+              [(ngModel)]="newClass.trainerId" 
+              name="trainerId" 
+              placeholder="Trainer Id" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+    
+          <!-- Password Field -->
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Trainer Id</label>
+            <input 
+              [(ngModel)]="newClass.userId" 
+              name="userId" 
+              placeholder="userId" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+    
+          <!-- Phone Number Field -->
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">scheduledTime</label>
+            <input 
+              [(ngModel)]="newClass.scheduledTime" 
+              name="scheduledTime" 
+               type="date"
+              placeholder="scheduledTime" 
+              required 
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="form-group mb-4">
+              <label class="block text-lg font-semibold text-gray-800">location</label>
+              <input 
+                [(ngModel)]="newClass.location" 
+                name="location" 
+                placeholder="location" 
+                required 
+                class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div class="form-group mb-4">
+              <label class="block text-lg font-semibold text-gray-800">maximumCapacity</label>
+              <input 
+                [(ngModel)]="newClass.maximumCapacity" 
+                name="maximumCapacity" 
+                placeholder="maximumCapacity" 
+                required 
+                class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+  
+        <!-- Submit and Back Buttons -->
+        <div class="flex justify-between">
+          <button 
+            type="submit" 
+            class="btn btn-update py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 w-1/2">
+            Update User
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-back py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 transition duration-300 w-1/2"
+            (click)="showEditUserForm = false">
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- User Table -->
+    <div *ngIf="!showAddUserForm && !showEditUserForm">
+      <table class="user-table w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+        <!-- Table Header -->
+        <thead class="bg-gradient-to-r from-blue-400 to-blue-600 text-white">
+          <tr>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Name</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">category</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">trainerId</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">userId</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">scheduledTime</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">location</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">maximum capacity</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Actions</th>
+          </tr>
+        </thead>
+  
+        <!-- Table Body -->
+        <tbody>
+          <tr *ngFor="let user of fitnessClasses" class="hover:bg-gray-50 transition duration-200">
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.name }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.category }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.trainerId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.userId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.scheduledTime }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.location }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ user.maximumCapacity}}</td>
+            <td class="py-3 px-6 border-b text-gray-700">
+              <button 
+                class="btn btn-edit py-2 px-4 bg-yellow-500 text-white rounded hover:bg-yellow-700 transition duration-300" 
+                (click)="editClass(user)">
+                Edit
+              </button>
+              <button 
+                class="btn btn-delete py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300 ml-2" 
+                (click)="deleteClass(user.userId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

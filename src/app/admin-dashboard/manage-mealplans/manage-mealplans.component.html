@@ -1,0 +1,132 @@
+<div class="manage-diets bg-gray-50 p-6 rounded-lg shadow-lg">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-gray-800">Manage Diets</h2>
+      <button 
+        class="btn btn-primary py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300" 
+        (click)="addNewDietForm()">
+        Add New Diet
+      </button>
+    </div>
+  
+    <!-- Add Diet Form -->
+    <div class="form-container mb-6 bg-white p-6 rounded-lg shadow-md" *ngIf="showAddDietForm">
+      <h3 class="text-xl font-bold mb-4 text-gray-800">Add New Diet</h3>
+      <form (ngSubmit)="addMealPlan()">
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">User ID</label>
+          <input [(ngModel)]="newMealPlan.userId" name="UserId" placeholder="UserId" required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Day</label>
+          <input [(ngModel)]="newMealPlan.day" name="day" placeholder="day" required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Meal Type</label>
+          <input [(ngModel)]="newMealPlan.mealType" name="mealType" placeholder="mealType" required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Recipe Id</label>
+            <input [(ngModel)]="newMealPlan.recipeId" name="recipeId" placeholder="recipeId" required
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Calories</label>
+            <input [(ngModel)]="newMealPlan.calories" name="calories" placeholder="calories" required
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        <div class="flex justify-between">
+          <button type="submit"
+            class="btn btn-add py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 w-1/2">
+            Add Diet
+          </button>
+          <button type="button"
+            class="btn btn-back py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 transition duration-300 w-1/2"
+            (click)="showAddDietForm = false">
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Edit Diet Form -->
+    <div class="form-container mb-6 bg-white p-6 rounded-lg shadow-md" *ngIf="showEditDietForm">
+      <h3 class="text-xl font-bold mb-4 text-gray-800">Edit Diet</h3>
+      <form (ngSubmit)="updateMealPlan()">
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">User ID</label>
+          <input [(ngModel)]="editingMealPlan.userId" name="userId" placeholder="userId" required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Calories</label>
+          <input [(ngModel)]="editingMealPlan.calories" name="calories" placeholder="Calories" required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Day</label>
+            <input [(ngModel)]="newMealPlan.day" name="day" placeholder="day" required
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="block text-lg font-semibold text-gray-800">Meal Type</label>
+            <input [(ngModel)]="newMealPlan.mealType" name="mealType" placeholder="mealType" required
+              class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="form-group mb-4">
+              <label class="block text-lg font-semibold text-gray-800">Recipe Id</label>
+              <input [(ngModel)]="newMealPlan.recipeId" name="recipeId" placeholder="recipeId" required
+                class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        <div class="flex justify-between">
+          <button type="submit"
+            class="btn btn-update py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 w-1/2">
+            Update Diet
+          </button>
+          <button type="button"
+            class="btn btn-back py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 transition duration-300 w-1/2"
+            (click)="showEditDietForm = false">
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Diet Table -->
+    <div *ngIf="!showAddDietForm && !showEditDietForm">
+      <table class="diet-table w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-gradient-to-r from-blue-400 to-blue-600 text-white">
+          <tr>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">User ID</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Day</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Meal Type</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Recipe Id</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Calories Id</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let diet of mealPlans" class="hover:bg-gray-50 transition duration-200">
+            <td class="py-3 px-6 border-b text-gray-700">{{ diet.userId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ diet.day }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ diet.mealType }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ diet.recipeId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ diet.calories }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">
+              <button class="btn btn-edit py-2 px-4 bg-yellow-500 text-white rounded hover:bg-yellow-700 transition duration-300"
+                (click)="editMealPlan(diet)">
+                Edit
+              </button>
+              <button class="btn btn-delete py-2 px-4 bg-red-500 text-white rounded hover:bg-red-700 transition duration-300 ml-2"
+                (click)="deleteMealPlan(diet.dietId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

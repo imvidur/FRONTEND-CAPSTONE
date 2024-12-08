@@ -1,0 +1,54 @@
+<div class="flex flex-col h-screen">
+    <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 shadow">
+  <div class="flex justify-between items-center w-full">
+    <!-- <div>
+      <p class="text-white">{{ currentDate }} | {{ currentTime }}</p>
+    </div> -->
+    <div class="flex justify-start w-full">
+      <h1 class="text-900 font-bold">Welcome to the GYM!</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button 
+        class="bg-white text-indigo-500 px-4 py-1 rounded hover:bg-gray-100" 
+        (click)="logout()">Logout</button>
+    </div>
+  </div>
+</header>
+
+  
+    <!-- Sidebar and Main Content -->
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-gray-800 text-white flex flex-col">
+        <div class="p-4 text-xl font-bold border-b border-gray-600">Admin Menu</div>
+        <nav class="flex-1 p-4 space-y-2">
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('dashboard')">Dashboard</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-users')">Manage Users</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-fitness-classes')">Manage Fitness Classes</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-meal-plans')">Manage Diet</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-payments')">Manage Payments</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-subscriptions')">Manage Subscriptions</a>
+          <a class="block py-2 px-4 rounded hover:bg-gray-700 cursor-pointer" 
+             (click)="navigateTo('manage-challenges')">Manage Challenges</a>
+        </nav>
+      </aside>
+  
+      <!-- Main Content -->
+      <main class="flex-1 bg-gray-100 p-6">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+      <p>© {{ currentDate | date:'yyyy' }} VIDUR'S GYM | All Rights Reserved</p>
+    </footer>
+  </div>
+  

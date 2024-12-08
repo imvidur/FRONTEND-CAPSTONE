@@ -1,0 +1,70 @@
+<div *ngIf="isAdmin; else nonAdmin" class="dashboard-container p-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-lg">
+    <h1 class="text-4xl font-extrabold mb-6">Welcome, Admin!</h1>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Total Users Card -->
+      <div class="card bg-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Total Users</h2>
+        <p class="text-4xl font-bold text-blue-600">{{ totalUsers }}</p>
+        <div class="mt-4">
+          <span class="text-sm text-gray-500">Users currently registered in the gym.</span>
+        </div>
+      </div>
+  
+      <!-- Total Trainers Card -->
+      <div class="card bg-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Total Trainers</h2>
+        <p class="text-4xl font-bold text-green-600">{{ totalTrainers }}</p>
+        <div class="mt-4">
+          <span class="text-sm text-gray-500">Trainers available for sessions.</span>
+        </div>
+      </div>
+  
+      <!-- Total Nutritionists Card -->
+      <div class="card bg-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Total Nutritionists</h2>
+        <p class="text-4xl font-bold text-yellow-500">{{ totalNutritionists }}</p>
+        <div class="mt-4">
+          <span class="text-sm text-gray-500">Nutritionists guiding our clients.</span>
+        </div>
+      </div>
+  
+      <!-- Working Hours Card -->
+      <div class="card bg-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Working Hours</h2>
+        <p class="text-3xl font-bold text-purple-600">{{ workingHours }}</p>
+        <div class="mt-4">
+          <span class="text-sm text-gray-500">Operating hours of the gym.</span>
+        </div>
+      </div>
+  
+      <!-- Gym Status Card -->
+      <div class="card bg-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-all duration-300">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Gym Status</h2>
+        <p class="text-3xl font-bold text-teal-600">{{ isGymActive ? 'Active' : 'Inactive' }}</p>
+        <div class="mt-4">
+          <span class="text-sm text-gray-500">Is the gym currently operational?</span>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Current Date and Time -->
+    <div class="mt-8 flex justify-between items-center">
+      <div class="text-xl">
+        <span class="font-bold text-gray-200">Current Date:</span> {{ currentDate }}
+      </div>
+      <div class="text-xl">
+        <span class="font-bold text-gray-200">Current Time:</span> {{ currentTime }}
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #nonAdmin>
+    <!-- Non-admin Role Image -->
+    <div class="image-container">
+      <img src="assets/dashboard.jpg" alt="Non-admin" class="full-screen-image" />
+    </div>
+    <p>You are not an admin. Please contact support for further assistance.</p>
+  </ng-template>
+  
+  

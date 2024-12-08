@@ -1,0 +1,87 @@
+<div class="manage-messages bg-gray-50 p-6 rounded-lg shadow-lg">
+    <!-- Header with "Manage Messages" title and "Add New Message" button -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-gray-800">Manage Messages</h2>
+      <button
+        class="btn btn-primary py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300"
+        (click)="showAddForm()"
+      >
+        Add New Message
+      </button>
+    </div>
+  
+    <!-- Add Message Form -->
+    <div class="form-container mb-6 bg-white p-6 rounded-lg shadow-md" *ngIf="showAddMessageForm">
+      <h3 class="text-xl font-bold mb-4 text-gray-800">Add New Message</h3>
+      <form (ngSubmit)="addMessage()">  
+        <!-- Receiver ID -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Receiver ID</label>
+          <input
+            [(ngModel)]="newMessage.receiverId"
+            name="receiverId"
+            placeholder="Receiver ID"
+            required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+  
+        <!-- Message Content -->
+        <div class="form-group mb-4">
+          <label class="block text-lg font-semibold text-gray-800">Message Content</label>
+          <textarea
+            [(ngModel)]="newMessage.messageContent"
+            name="messageContent"
+            placeholder="Enter message content"
+            required
+            class="input-field w-full p-3 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+  
+        <!-- Submit and Cancel Buttons -->
+        <div class="flex justify-between">
+          <button
+            type="submit"
+            class="btn btn-add py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 w-1/2"
+          >
+            Add Message
+          </button>
+          <button
+            type="button"
+            class="btn btn-back py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 transition duration-300 w-1/2"
+            (click)="showAddMessageForm = false"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Messages Table -->
+    <div *ngIf="!showAddMessageForm">
+      <table class="message-table w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+        <!-- Table Header -->
+        <thead class="bg-gradient-to-r from-blue-400 to-blue-600 text-white">
+          <tr>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Message ID</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Receiver ID</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Date Sent</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Message Content</th>
+            <th class="py-4 px-6 text-left text-sm font-semibold border-b">Status</th>
+          </tr>
+        </thead>
+  
+        <!-- Table Body -->
+        <tbody>
+          <tr *ngFor="let message of messages" class="hover:bg-gray-50 transition duration-200">
+            <td class="py-3 px-6 border-b text-gray-700">{{ message.messageId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ message.receiverId }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ message.dateSent }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ message.messageContent }}</td>
+            <td class="py-3 px-6 border-b text-gray-700">{{ message.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

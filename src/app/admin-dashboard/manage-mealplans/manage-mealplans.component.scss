@@ -1,0 +1,99 @@
+.manage-mealplans {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  
+    h2 {
+      color: #4caf50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    table.mealplan-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+  
+      th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+  
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+  
+      input, button {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+  
+      input {
+        flex: 1;
+        max-width: calc(50% - 10px);
+      }
+  
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        max-width: 150px;
+  
+        &:hover {
+          background-color: #45a049;
+        }
+      }
+  
+      button[type='button'] {
+        background-color: #f44336;
+  
+        &:hover {
+          background-color: #d32f2f;
+        }
+      }
+    }
+  
+    .btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+  
+      &.btn-edit {
+        background-color: #2196f3;
+        color: white;
+  
+        &:hover {
+          background-color: #1976d2;
+        }
+      }
+  
+      &.btn-delete {
+        background-color: #f44336;
+        color: white;
+  
+        &:hover {
+          background-color: #d32f2f;
+        }
+      }
+    }
+  }
+  
